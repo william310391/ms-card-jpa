@@ -12,7 +12,7 @@ where I have explained how to do token based authentication for your Spring boot
 
 * Handling unauthorized access to protected routes with error 401:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1642342414144/xtiMe7v6k.png)
+![image.png](https://drive.google.com/drive/u/0/folders/1gIm1FkuRUYFE5DlbQC0sFT34ckHLszM8)
 
 * Get token in response of register request
 
@@ -20,7 +20,7 @@ where I have explained how to do token based authentication for your Spring boot
 
 * Invalid credentials response when wrong username password is supplied:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1642347577674/Y9WSd7xZC.png)
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/)
 
 * Show content from protected route when Auth token is provided in header.
 
