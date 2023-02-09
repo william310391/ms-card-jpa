@@ -8,5 +8,9 @@ import com.example.api.entity.Usuario;
 public interface UsuarioRepository extends BaseRepository<Usuario> {
   public Usuario findOneEmail(String email);
   // public void save2 (Usuario usuario);  
+
+
+
+  
 }
 
