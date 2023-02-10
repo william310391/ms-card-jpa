@@ -1,7 +1,6 @@
 package com.example.api.dto;
 
 import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import lombok.Data;
