@@ -18,6 +18,4 @@ public class BaseEntity{
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   int id;
-
-  // String prueba;
 }

@@ -86,7 +86,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     } 
     catch (Exception e) {
-      System.out.println( e.getClass().getCanonicalName()); 
       response.setResultadoDescripcion("Something went wrong");
       response.setCodigoHTTP(500);
       e.printStackTrace();

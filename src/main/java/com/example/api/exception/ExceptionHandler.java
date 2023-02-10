@@ -1,22 +1,27 @@
-package com.example.api.config;
+package com.example.api.exception;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.exception.SQLGrammarException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.example.api.dto.ResponseDTO;
 
-@ResponseStatus(HttpStatus.BAD_REQUEST)
-public class ValidationHandler extends ResponseEntityExceptionHandler {
+
+
+
+@RestControllerAdvice
+public class ExceptionHandler {
     
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @org.springframework.web.bind.annotation.ExceptionHandler(MethodArgumentNotValidException.class)
-    protected ResponseDTO<String> handlerMethodArgumentNotValidException2(MethodArgumentNotValidException ex){
+    public ResponseDTO<String> handlerMethodArgumentNotValidException(MethodArgumentNotValidException ex){
 
         ResponseDTO<String> dto = new ResponseDTO<String>(null);
 
@@ -33,6 +38,23 @@ public class ValidationHandler extends ResponseEntityExceptionHandler {
         dto.setErros(lista);
         return dto;    
     }
+
+    
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @org.springframework.web.bind.annotation.ExceptionHandler(SQLGrammarException.class)
+    public ResponseDTO<String>  handlerSQLGrammarException(SQLGrammarException ex){
+        ResponseDTO<String> dto = new ResponseDTO<String>(null);
+
+        dto.setCodigoHTTP(HttpStatus.BAD_REQUEST.value());
+        dto.setResultadoDescripcion("Error Interno con servidor de base de datos");
+        dto.setResultadoIndicador(0);
+        List<String> lista = new ArrayList<String>();
+        lista.add(ex.getCause().getMessage());
+        dto.setErros(lista);
+        return dto;     
+        
+    }
+
 
     
 }

@@ -1,8 +1,9 @@
 package com.example.api.controller;
 
-import com.example.api.config.Validation_Login;
 import com.example.api.dto.UsuarioDTO;
+import com.example.api.exception.ValidationGroup.Login;
 import com.example.api.service.AuthenticationService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -20,7 +21,7 @@ public class AuthenticationController {
 
 
     @PostMapping("/login")
-    public ResponseEntity<?> loginUser(@Validated({Validation_Login.class}) @RequestBody UsuarioDTO usuario) {
+    public ResponseEntity<?> loginUser(@Validated({Login.class})@RequestBody UsuarioDTO usuario) {
         return authenticationService.loginUser(usuario);
     }
 
