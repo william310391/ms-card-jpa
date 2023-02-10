@@ -12,12 +12,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.example.api.dto.ResponseDTO;
 
-
-
-
 @RestControllerAdvice
-public class ExceptionHandler {
-    
+public class ExceptionHandler {    
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @org.springframework.web.bind.annotation.ExceptionHandler(MethodArgumentNotValidException.class)
@@ -38,11 +34,10 @@ public class ExceptionHandler {
         dto.setErros(lista);
         return dto;    
     }
-
     
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @org.springframework.web.bind.annotation.ExceptionHandler(SQLGrammarException.class)
-    public ResponseDTO<String>  handlerSQLGrammarException(SQLGrammarException ex){
+    public ResponseDTO<String> handlerSQLGrammarException(SQLGrammarException ex){
         ResponseDTO<String> dto = new ResponseDTO<String>(null);
 
         dto.setCodigoHTTP(HttpStatus.BAD_REQUEST.value());
