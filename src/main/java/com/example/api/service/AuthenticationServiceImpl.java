@@ -1,6 +1,8 @@
 package com.example.api.service;
 
+
 import java.util.HashMap;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +45,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     ResponseDTO<AuthenticationDTO> response = new ResponseDTO<AuthenticationDTO>(null);
     response.setResultadoIndicador(0);
-
+    
     try {
       Authentication auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(usuario.getCuenta(), usuario.getContrasena()));
       
@@ -82,8 +84,9 @@ public class AuthenticationServiceImpl implements AuthenticationService {
       response.setCodigoHTTP(401);
       e.printStackTrace();
 
-    } catch (Exception e) {
-
+    } 
+    catch (Exception e) {
+      System.out.println( e.getClass().getCanonicalName()); 
       response.setResultadoDescripcion("Something went wrong");
       response.setCodigoHTTP(500);
       e.printStackTrace();
