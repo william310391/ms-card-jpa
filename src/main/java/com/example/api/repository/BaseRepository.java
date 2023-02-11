@@ -2,11 +2,15 @@ package com.example.api.repository;
 
 import java.util.List;
 
+
+
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.api.entity.BaseEntity;
 
 @Service
+@Transactional
 public interface BaseRepository<T extends BaseEntity> {
   
   public List<T> findAll();

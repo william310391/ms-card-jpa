@@ -5,15 +5,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.NoRepositoryBean;
 
 import com.example.api.entity.BaseEntity;
 
 
 //Devuewlve CRUD Generico
+@NoRepositoryBean
 interface BaseGenericoRepository<T extends BaseEntity> extends CrudRepository<T,Integer> {
   
 }
-
+@NoRepositoryBean
 public class BaseRepositoryImpl<T extends BaseEntity>  implements BaseRepository<T> {
 
   @Autowired
