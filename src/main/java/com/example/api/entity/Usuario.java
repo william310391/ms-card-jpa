@@ -1,6 +1,6 @@
 package com.example.api.entity;
 
-// import java.io.Serializable;
+import java.io.Serializable;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -12,14 +12,14 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper=true)
+@EqualsAndHashCode(callSuper=false)
 @Entity
 @AttributeOverrides({
 	@AttributeOverride(name="id",column=@Column(name="id"))
 })
 @Table(name = "Usuario")
 
-public class Usuario extends BaseEntity {
+public class Usuario extends BaseEntity implements Serializable {
 
 	@Column(name = "nombres")
 	String nombres;
